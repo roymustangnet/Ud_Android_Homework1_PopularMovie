@@ -3,6 +3,8 @@ package com.example.android.movie.utils;
 import android.net.Uri;
 import android.util.Log;
 
+import com.example.android.movie.BuildConfig;
+
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
@@ -16,12 +18,15 @@ public class NetworkUtils {
     private static final String POPULAR_MOVIES_URL =
             "http://api.themoviedb.org/3/movie/popular";
 
-    public static URL buildUrl(String locationQuery) {
+    // TODO(1): Check API Document to get query params
+    private static final String API_KEY_PARAM = "api_key";
+    private static final String PAGE_PARAM = "page";
+    private static final String SORT_BY_PARAM = "sort_by";
+
+    public static URL buildQueryUrl(int page, String sortBy) {
         Uri builtUri = Uri.parse(POPULAR_MOVIES_URL).buildUpon()
-//                .appendQueryParameter(QUERY_PARAM, locationQuery)
-//                .appendQueryParameter(FORMAT_PARAM, format)
-//                .appendQueryParameter(UNITS_PARAM, units)
-//                .appendQueryParameter(DAYS_PARAM, Integer.toString(numDays))
+                .appendQueryParameter(API_KEY_PARAM, BuildConfig.THE_MOVIE_DB_API_TOKEN)
+                .appendQueryParameter(PAGE_PARAM, Integer.toString(page))
                 .build();
 
         URL url = null;
@@ -34,6 +39,19 @@ public class NetworkUtils {
         Log.v(TAG, "Built URI " + url);
         return url;
     }
+
+    // TODO(3): Get the movie information by movie id
+    public static URL buildQueryMovieInfoUrl(int movieId){
+        return null;
+    }
+
+    // TODO(4): Get the movie image by movie poster_path
+    public static URL buildQueryMovieInfoUrl(String img){
+        return null;
+    }
+
+
+
 
     public static String getResponseFromHttpUrl(URL url) {
         HttpURLConnection urlConnection = null;
@@ -61,5 +79,11 @@ public class NetworkUtils {
             urlConnection.disconnect();
             return null;
         }
+    }
+
+    // TODO(2): Add some sort by param value
+    class SortBy {
+        public static final String POPULARITY_ASC = "popularity.asc";
+        public static final String POPULARITY_DEC = "popularity.des";
     }
 }
