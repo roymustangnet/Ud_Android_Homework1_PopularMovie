@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="left_big_padding">16dp</dimen>
+    <dimen name="right_big_padding">16dp</dimen>
+    <dimen name="top_big_padding">16dp</dimen>
+    <dimen name="bottom_big_padding">16dp</dimen>
+
+    <dimen name="left_small_padding">8dp</dimen>
+    <dimen name="right_small_padding">8dp</dimen>
+    <dimen name="top_small_padding">8dp</dimen>
+    <dimen name="bottom_small_padding">8dp</dimen>
+</resources>
