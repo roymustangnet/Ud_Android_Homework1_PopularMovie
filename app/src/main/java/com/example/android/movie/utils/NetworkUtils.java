@@ -23,7 +23,7 @@ public class NetworkUtils {
     private static final String PAGE_PARAM = "page";
     private static final String SORT_BY_PARAM = "sort_by";
 
-    public static URL buildQueryUrl(int page, String sortBy) {
+    public static URL buildGatAllMoviesUrl(int page, String sortBy) {
         Uri builtUri = Uri.parse(POPULAR_MOVIES_URL).buildUpon()
                 .appendQueryParameter(API_KEY_PARAM, BuildConfig.THE_MOVIE_DB_API_TOKEN)
                 .appendQueryParameter(PAGE_PARAM, Integer.toString(page))
@@ -45,7 +45,7 @@ public class NetworkUtils {
         return null;
     }
 
-    // TODO(4): Get the movie image by movie poster_path
+    // TODO(4): Get the movie image by movie img
     public static URL buildQueryMovieInfoUrl(String img){
         return null;
     }
