@@ -84,6 +84,12 @@ public class NetworkUtils {
     // TODO(2): Add some sort by param value
     class SortBy {
         public static final String POPULARITY_ASC = "popularity.asc";
-        public static final String POPULARITY_DEC = "popularity.des";
+        public static final String POPULARITY_DESC = "popularity.desc";
+        public static final String RELEASE_DATE_ASC = "release_date.asc";
+        public static final String RELEASE_DATE_DESC = "release_date.desc";
+        public static final String VOTE_COUNT_ASC = "vote_count.asc";
+        public static final String VOTE_COUNT_DESC = "vote_count.desc";
+        public static final String VOTE_AVERAGE_ASC = "vote_average.asc";
+        public static final String VOTE_AVERAGE_DESC = "vote_average.desc";
     }
 }
