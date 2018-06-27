@@ -18,7 +18,7 @@ public class NetworkUtils {
     private static final String POPULAR_MOVIES_URL =
             "http://api.themoviedb.org/3/movie/popular";
 
-    // TODO(1): Check API Document to get query params
+    // COMPLETED(1): Check API Document to get query params
     private static final String API_KEY_PARAM = "api_key";
     private static final String PAGE_PARAM = "page";
     private static final String SORT_BY_PARAM = "sort_by";
@@ -81,8 +81,7 @@ public class NetworkUtils {
         }
     }
 
-    // TODO(2): Add some sort by param value
-    class SortBy {
+    public class SortBy {
         public static final String POPULARITY_ASC = "popularity.asc";
         public static final String POPULARITY_DESC = "popularity.desc";
         public static final String RELEASE_DATE_ASC = "release_date.asc";

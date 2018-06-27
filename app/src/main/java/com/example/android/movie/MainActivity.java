@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
 import android.widget.ProgressBar;
 
@@ -29,10 +30,11 @@ public class MainActivity extends AppCompatActivity {
 
         mAdapter = new MovieAdapter();
         mRecyclerView.setAdapter(mAdapter);
+        loadMoviesData();
     }
 
     private void loadMoviesData(){
-
+        new FetchMoviesTask().execute("");
     }
 
     public class FetchMoviesTask extends AsyncTask<String, Void, String[]> {
@@ -49,6 +51,14 @@ public class MainActivity extends AppCompatActivity {
             if (params.length == 0) {
                 return null;
             }
+            try {
+                URL url =  NetworkUtils.buildGatAllMoviesUrl(0, NetworkUtils.SortBy.POPULARITY_ASC);
+                String json = NetworkUtils.getResponseFromHttpUrl(url);
+                Log.v("json", json);
+            } catch (Exception e){
+                e.printStackTrace();
+            }
+
 
 //            String location = params[0];
 //            URL weatherRequestUrl = NetworkUtils.buildGatAllMoviesUrl(location);
